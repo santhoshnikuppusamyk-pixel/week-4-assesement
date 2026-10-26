@@ -1,0 +1,4 @@
+Classify the customer ticket into Billing, Technical, or Account.
+Return only the category name.
+
+Ticket: {ticket}
