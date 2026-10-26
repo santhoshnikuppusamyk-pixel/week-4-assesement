@@ -14,8 +14,7 @@ tickets = [
     "Kiran says the payment was deducted twice.",
     "Meena reports that the website is running very slowly."
 ]
-# 3. Simulated model responses
-# The first response is deliberately invalid to demonstrate retry.
+
 def get_model_response(ticket, attempt, previous_error=None):
     # First ticket: simulate invalid urgency, then correct it
     if "Priya" in ticket:
@@ -59,7 +58,7 @@ def get_model_response(ticket, attempt, previous_error=None):
             "summary": "Website is running slowly"
         }
     return json.dumps(customer)
-# 4. Validate and retry up to 3 times
+
 def extract_ticket(ticket):
     for attempt in range(1, 4):
         response = get_model_response(ticket, attempt)
@@ -81,7 +80,7 @@ def extract_ticket(ticket):
         "success": False,
         "error": "Failed validation after 3 attempts."
     }
-# 5. Process five tickets
+
 if __name__ == "__main__":
     for number, ticket in enumerate(tickets, start=1):
         print(f"\nTicket {number}: {ticket}")

@@ -16,13 +16,13 @@ def classify(ticket, version):
         "account", "registered"
     ]
     if version == "v1":
-        # Basic rules for the first prompt
+    
         if any(word in ticket for word in billing_words):
             return "Billing"
         if any(word in ticket for word in technical_words):
             return "Technical"
         return "Account"
-    # Improved rules for the second prompt
+    
     if any(word in ticket for word in billing_words):
         return "Billing"
     if any(word in ticket for word in technical_words):
